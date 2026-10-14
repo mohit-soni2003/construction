@@ -31,6 +31,23 @@ header { display: flex; justify-content: space-between; align-items: center; gap
 }
 @media (hover: hover) { .lang:hover { background: var(--primary); color: #fff; } }
 html[lang="hi"] body { line-height: 1.5; }
+.lock { flex: none; padding: 6px 10px; border-radius: 99px; background: transparent; line-height: 1; }
+
+/* ---------- PIN screen ---------- */
+.pin-page { min-height: 100vh; min-height: 100dvh; display: flex; align-items: center; justify-content: center; padding: 16px; position: relative; }
+.pin-lang { position: absolute; top: 16px; right: 16px; }
+.pin-card { width: 100%; max-width: 360px; text-align: center; padding: 28px 24px; margin: 0; }
+.pin-card h1 { font-size: 22px; margin: 4px 0; }
+.pin-card .muted { margin: 0 0 20px; }
+.pin-card button.primary { width: 100%; min-height: 46px; margin-top: 8px; }
+.pin-icon { font-size: 40px; }
+.pin-wrap { position: relative; display: block; margin-bottom: 12px; cursor: text; }
+/* The real input sits invisibly on top of the dots so taps open the number keyboard */
+.pin-input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; font-size: 16px; }
+.pin-dots { display: flex; justify-content: center; gap: 12px; padding: 14px 0; }
+.dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--muted); }
+.dot.on { background: var(--primary); border-color: var(--primary); }
+.pin-wrap:focus-within .dot:not(.on) { border-color: var(--primary); }
 
 /* ---------- Stats ---------- */
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }

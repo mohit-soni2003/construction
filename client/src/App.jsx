@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { api } from './api.js';
+import { api, getPin, clearPin, AUTH_EVENT } from './api.js';
 import { useLang } from './i18n.jsx';
 import ExpensesPage from './ExpensesPage.jsx';
 import BudgetPage from './BudgetPage.jsx';
 import SettingsPage from './SettingsPage.jsx';
+import PinScreen from './PinScreen.jsx';
 
 const TABS = { expenses: 'Expenses', budget: 'Budget', settings: 'Settings' };
 const TAB_ICONS = { expenses: '🧾', budget: '📊', settings: '⚙️' };
@@ -18,6 +19,7 @@ export default function App() {
     budget: { categories: [], uncategorized: {} },
   });
   const [loadError, setLoadError] = useState('');
+  const [locked, setLocked] = useState(() => !getPin());
 
   const load = useCallback(async () => {
     try {
@@ -35,8 +37,20 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    load();
-  }, [load]);
+    if (!locked) load();
+  }, [locked, load]);
+
+  // Any request rejected for a wrong/missing PIN brings back the PIN screen
+  useEffect(() => {
+    const lock = () => setLocked(true);
+    window.addEventListener(AUTH_EVENT, lock);
+    return () => window.removeEventListener(AUTH_EVENT, lock);
+  }, []);
+
+  function lockNow() {
+    clearPin();
+    setLocked(true);
+  }
 
   useEffect(() => {
     history.replaceState(null, '', '#' + tab);
@@ -83,6 +97,8 @@ export default function App() {
     },
   };
 
+  if (locked) return <PinScreen onUnlock={() => setLocked(false)} />;
+
   return (
     <div className="container">
       <header>
@@ -103,6 +119,7 @@ export default function App() {
           <button className="lang" onClick={toggle} title={lang === 'hi' ? 'Switch to English' : 'हिंदी में देखें'}>
             {lang === 'hi' ? 'English' : 'हिंदी'}
           </button>
+          <button className="lock" onClick={lockNow} title={t('Lock')} aria-label={t('Lock')}>🔒</button>
         </div>
       </header>
 

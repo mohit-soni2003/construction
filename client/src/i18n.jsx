@@ -111,6 +111,15 @@ const UI_HI = {
   'New unit, e.g. quintal': 'नई इकाई, जैसे क्विंटल',
   'Add unit': 'इकाई जोड़ें',
 
+  // PIN screen
+  'Enter the 6-digit PIN': '6 अंकों का पिन डालें',
+  'Checking…': 'जाँच हो रही है…',
+  Unlock: 'खोलें',
+  Lock: 'लॉक करें',
+  'Wrong PIN': 'गलत पिन',
+  'Too many wrong attempts. Try again in 15 minutes.': 'बहुत बार गलत पिन डाला गया। 15 मिनट बाद फिर कोशिश करें।',
+  'Database connection failed': 'डेटाबेस से जुड़ नहीं पाए',
+
   // server messages
   'Choose a material category': 'सामग्री की श्रेणी चुनें',
   'Item name is required': 'सामान का नाम ज़रूरी है',

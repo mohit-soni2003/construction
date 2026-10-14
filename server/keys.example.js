@@ -5,3 +5,6 @@
 export const MONGO_URI = 'mongodb://127.0.0.1:27017/construction';
 
 export const PORT = 5000;
+
+// PIN to open the app (asked once per device)
+export const APP_PIN = '000000';
