@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLang } from './i18n.jsx';
 import { KIND_LABEL, range } from './utils.js';
+import InstallHelp from './InstallHelp.jsx';
 
 const blank = { name: '', kind: 'material', section: '', requiredQty: '', unitRate: '', unit: '', budgetMin: '', budgetMax: '' };
 
@@ -165,6 +166,10 @@ export default function SettingsPage({ categories, units, actions }) {
           <button className="primary">{t('Add unit')}</button>
         </form>
         {unitError && <p className="error">{unitError}</p>}
+      </div>
+
+      <div className="card">
+        <InstallHelp />
       </div>
     </>
   );

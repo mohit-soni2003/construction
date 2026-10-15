@@ -9,3 +9,8 @@ createRoot(document.getElementById('root')).render(
     <App />
   </LangProvider>
 );
+
+// Makes the site installable as a phone app (only in the built/deployed version)
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+}

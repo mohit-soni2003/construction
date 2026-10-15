@@ -1,3 +1,5 @@
+import { API_URL } from './keys.js';
+
 // The PIN is remembered on this device after the first successful unlock
 const PIN_KEY = 'pin';
 
@@ -25,7 +27,7 @@ function savePin(pin) {
 export const AUTH_EVENT = 'auth-required';
 
 async function req(url, options) {
-  const res = await fetch(url, {
+  const res = await fetch(API_URL + url, {
     ...options,
     headers: { 'Content-Type': 'application/json', 'x-pin': getPin() },
   });
@@ -52,7 +54,7 @@ export const api = {
   budget: () => req('/api/budget'),
 
   async login(pin) {
-    const res = await fetch('/api/login', {
+    const res = await fetch(API_URL + '/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ pin }),

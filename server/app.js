@@ -1,4 +1,5 @@
-// Express app with all API routes. Used by index.js (local) and api/index.js (Vercel).
+// Express app with all API routes. Used by index.js (local / Node hosting) and api/index.js (Vercel).
+// The website (client) is hosted separately and calls this server from another address.
 import crypto from 'crypto';
 import express from 'express';
 import cors from 'cors';
@@ -57,8 +58,12 @@ function checkPin(req, pin) {
 }
 
 const app = express();
+// Any website may call the API; the PIN is what protects the data
 app.use(cors());
 app.use(express.json());
+
+// Health check: open the server address in a browser to see it is running
+app.get('/', (_req, res) => res.json({ ok: true, app: 'construction-expenses-api' }));
 
 app.post('/api/login', (req, res) => {
   const fail = checkPin(req, req.body?.pin);

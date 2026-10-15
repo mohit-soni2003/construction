@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#2563eb"/>
+  <!-- house, kept inside the centre 80% so it survives round/maskable crops -->
+  <path d="M256 112 L392 228 L364 228 L364 380 L148 380 L148 228 L120 228 Z" fill="#fff"/>
+  <rect x="300" y="128" width="36" height="72" fill="#fff"/>
+  <text x="256" y="350" font-family="Segoe UI, Arial, sans-serif" font-size="150" font-weight="700" fill="#2563eb" text-anchor="middle">₹</text>
+</svg>

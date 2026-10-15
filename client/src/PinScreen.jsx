@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { api } from './api.js';
 import { useLang } from './i18n.jsx';
+import InstallHelp from './InstallHelp.jsx';
 
 const LENGTH = 6;
 
@@ -63,6 +64,7 @@ export default function PinScreen({ onUnlock }) {
         <button className="primary" disabled={busy || pin.length !== LENGTH}>
           {busy ? t('Checking…') : t('Unlock')}
         </button>
+        <InstallHelp compact />
       </form>
     </div>
   );

@@ -5,12 +5,14 @@ import ExpensesPage from './ExpensesPage.jsx';
 import BudgetPage from './BudgetPage.jsx';
 import SettingsPage from './SettingsPage.jsx';
 import PinScreen from './PinScreen.jsx';
+import useInstall from './useInstall.js';
 
 const TABS = { expenses: 'Expenses', budget: 'Budget', settings: 'Settings' };
 const TAB_ICONS = { expenses: '🧾', budget: '📊', settings: '⚙️' };
 
 export default function App() {
   const { t, tErr, lang, toggle } = useLang();
+  const install = useInstall();
   const [tab, setTab] = useState(() => (location.hash.slice(1) in TABS ? location.hash.slice(1) : 'expenses'));
   const [data, setData] = useState({
     expenses: [],
@@ -116,6 +118,11 @@ export default function App() {
               </button>
             ))}
           </nav>
+          {install && (
+            <button className="install" onClick={install} title={t('Install app')}>
+              📲<span>{t('Install app')}</span>
+            </button>
+          )}
           <button className="lang" onClick={toggle} title={lang === 'hi' ? 'Switch to English' : 'हिंदी में देखें'}>
             {lang === 'hi' ? 'English' : 'हिंदी'}
           </button>

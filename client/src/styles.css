@@ -31,6 +31,11 @@ header { display: flex; justify-content: space-between; align-items: center; gap
 }
 @media (hover: hover) { .lang:hover { background: var(--primary); color: #fff; } }
 html[lang="hi"] body { line-height: 1.5; }
+.install { flex: none; display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 99px; background: var(--primary); border-color: var(--primary); color: #fff; font-weight: 600; }
+.install-big { width: 100%; min-height: 46px; margin-top: 10px; border-color: var(--primary); color: var(--primary); background: transparent; font-weight: 600; }
+.install-help { text-align: left; font-size: 14px; }
+.install-help p { margin: 6px 0 0; }
+.install-help.compact { margin-top: 14px; padding: 10px 12px; border-radius: 8px; background: var(--bg); font-size: 13px; }
 .lock { flex: none; padding: 6px 10px; border-radius: 99px; background: transparent; line-height: 1; }
 
 /* ---------- PIN screen ---------- */
@@ -231,6 +236,9 @@ tfoot td { font-weight: 600; border-bottom: 0; }
   table.cats .c-unit { grid-area: unit; font-size: 13px; margin-top: 4px; text-align: right; }
   table.cats .c-act { grid-area: act; margin-top: 8px; }
 
+  .header-right { gap: 8px; }
+  .install { padding: 6px 10px; }
+  .install span { display: none; } /* icon only on phones */
   .chip { padding: 4px 12px; font-size: 14px; }
   .chip .x { font-size: 20px; padding: 0 0 0 4px; min-height: 0; }
 }

@@ -111,6 +111,16 @@ const UI_HI = {
   'New unit, e.g. quintal': 'नई इकाई, जैसे क्विंटल',
   'Add unit': 'इकाई जोड़ें',
 
+  // install as app
+  'Install app': 'ऐप इंस्टॉल करें',
+  'Install app on this phone': 'इस फ़ोन पर ऐप इंस्टॉल करें',
+  'Add app icon to your home screen': 'होम स्क्रीन पर ऐप का आइकन लगाएँ',
+  'In Safari, tap Share (□↑) → “Add to Home Screen” → Add.': 'Safari में शेयर (□↑) दबाएँ → “Add to Home Screen” → Add।',
+  'In Chrome, tap the ⋮ menu (top right) → “Add to Home screen” or “Install app” → Add.':
+    'Chrome में ऊपर दाईं ओर ⋮ मेन्यू दबाएँ → “Add to Home screen” या “Install app” → Add।',
+  'Full app install works only on the https (Vercel) link. On the Wi-Fi link you get a shortcut icon.':
+    'पूरा ऐप इंस्टॉल सिर्फ़ https (Vercel) लिंक पर होता है। Wi-Fi लिंक पर शॉर्टकट आइकन बनेगा।',
+
   // PIN screen
   'Enter the 6-digit PIN': '6 अंकों का पिन डालें',
   'Checking…': 'जाँच हो रही है…',
